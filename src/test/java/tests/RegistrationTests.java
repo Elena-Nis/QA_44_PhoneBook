@@ -1,69 +1,49 @@
 package tests;
 
+import dto.UserDto;
 import manager.ApplicationManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.LoginPage;
+import utils.HeaderMenuItem;
 
-import java.util.Random;
+import static pages.BasePage.clickButtonsOnHeader;
+import static utils.RandomUtils.generateEmail;
+import static utils.RandomUtils.generateString;
 
 public class RegistrationTests extends ApplicationManager {
 
     @Test
     public void registrationPositiveTest(){
-        int i = new Random().nextInt(1000);
-        String email = "asd" + i + "@qwe.com";
-        String password = "Privet$12345789" + i;
         Assert.assertTrue(new HomePage(getDriver())
                 .clickBtnLoginHeader()
-                .typeLoginForm(email, password)
+                .typeLoginForm("my_qa_email5@mail.com", "Password12345!")
                 .clickBtnRegistrationPositive()
                 .isElementContactPresent());
-
     }
-
     @Test
-    public void registrationNegativeTestEmail(){
-                Assert.assertTrue(new HomePage(getDriver())
+    public void registrationNegativeTest_wrongEmail(){
+        String email = generateString(10);
+        UserDto user = new UserDto(email, "Qwerty123!");
+        new HomePage(getDriver())
                 .clickBtnLoginHeader()
-                .typeLoginForm("Oly.com", "Oly12$123457890")
+                .typeLoginForm(user)
                 .clickBtnRegistrationNegative()
                 .closeAlert()
-                .isTextInElementPresent_errorMessage());
-
+                .isTextInElementPresent_errorMessage("Registration failed with code 400")
+        ;
     }
-
     @Test
-    public void registrationNegativeTestPassword(){
-        Assert.assertTrue(new HomePage(getDriver())
-                .clickBtnLoginHeader()
-                .typeLoginForm("Oly@qwe.com", "Oly12123457890")
+    public void registrationNegativeTest_wrongEmail_Enum() {
+        UserDto user = new UserDto(generateString(5), "Qwerty123!");
+        new HomePage(getDriver());
+        LoginPage loginPage = clickButtonsOnHeader(HeaderMenuItem.LOGIN);
+        loginPage.typeLoginForm(user)
                 .clickBtnRegistrationNegative()
                 .closeAlert()
-                .isTextInElementPresent_errorMessage());
-
+                .isTextInElementPresent_errorMessage("Registration failed with code 400")
+        ;
     }
 
-    @Test
-    public void registrationNegativeTestEmailPassword(){
-        Assert.assertTrue(new HomePage(getDriver())
-                .clickBtnLoginHeader()
-                .typeLoginForm("Oly.com", "Oly12123457890")
-                .clickBtnRegistrationNegative()
-                .closeAlert()
-                .isTextInElementPresent_errorMessage());
-
-    }
-
-    @Test
-    public void registrationNegativeUserRegistered(){
-        Assert.assertTrue(new HomePage(getDriver())
-                .clickBtnLoginHeader()
-                .typeLoginForm("asd@qwe.com", "Privet$123457890")
-                .clickBtnRegistrationNegative()
-                .closeAlert()
-                .isTextInElementPresent_errorMessage());
-
-    }
 }
-
