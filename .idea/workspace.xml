@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Negative tests Login and Registration">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/HeaderMenuItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/RandomUtils.java" afterDir="false" />
+    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment=" Implementation clickButtonsOnHeader">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ContactDtoLombok.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pages/AboutPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pages/AddPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Experiments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/AddContactsTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/ContactPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/ContactPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/HeaderMenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/HeaderMenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RandomUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RandomUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,6 +63,21 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.AddContactsTests.addNewContactNegativeAddressEmpty.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativePhoneEmpty.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativePhoneNotNum.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativePhoneTooLong.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativePhoneTooShort.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestEmailAlreadyExists.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestEmailEmpty.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharAfterAt.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharBeforeAt.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestEmailTwoAt.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestEmailWithCyrLet.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestEmailWithoutAt.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestLastNameEmpty.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactNegativeTestNameEmpty.executor": "Run",
+    "TestNG.AddContactsTests.addNewContactPositiveTest.executor": "Run",
     "TestNG.HomeTests.executor": "Run",
     "TestNG.HomeTests.firstTest.executor": "Run",
     "TestNG.LoginTests.executor": "Run",
@@ -81,6 +98,7 @@
     "TestNG.RegistrationTests.registrationPositiveTest.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/e4887/Documents_Auto/GitHub/QA_44_PhoneBook/src/test/java/tests",
     "last_opened_file_path": "C:/Users/e4887/Documents_Auto/GitHub/QA_44_IlCarro",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
@@ -90,8 +108,8 @@
       <recent name="C:\Users\e4887\Documents_Auto\GitHub" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RegistrationTests.registrationNegativeTest_wrongEmail_Enum">
-    <configuration name="LoginTests.loginNegativeTest_wrongEmailUnregUser_Enum" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.AddContactsTests.addNewContactNegativePhoneTooLong">
+    <configuration name="AddContactsTests.addNewContactNegativeAddressEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -100,8 +118,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginNegativeTest_wrongEmailUnregUser_Enum" />
+      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
+      <option name="METHOD_NAME" value="addNewContactNegativeAddressEmpty" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -109,7 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginNegativeTest_wrongEmailWOAt_Enum" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativePhoneEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -118,8 +136,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginNegativeTest_wrongEmailWOAt_Enum" />
+      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
+      <option name="METHOD_NAME" value="addNewContactNegativePhoneEmpty" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -127,7 +145,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginNegativeTest_wrongPassword" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativePhoneNotNum" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -136,8 +154,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginNegativeTest_wrongPassword" />
+      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
+      <option name="METHOD_NAME" value="addNewContactNegativePhoneNotNum" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -145,7 +163,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginNegativeTest_wrongPassword_Enum" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativePhoneTooLong" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -154,8 +172,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginNegativeTest_wrongPassword_Enum" />
+      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
+      <option name="METHOD_NAME" value="addNewContactNegativePhoneTooLong" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -163,7 +181,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.registrationNegativeTest_wrongEmail_Enum" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativePhoneTooShort" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -172,8 +190,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="registrationNegativeTest_wrongEmail_Enum" />
+      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
+      <option name="METHOD_NAME" value="addNewContactNegativePhoneTooShort" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -183,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.RegistrationTests.registrationNegativeTest_wrongEmail_Enum" />
-        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum" />
-        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongEmailUnregUser_Enum" />
-        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongPassword_Enum" />
-        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongPassword" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneTooLong" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneTooShort" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneNotNum" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneEmpty" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeAddressEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -216,22 +234,20 @@
       <option name="project" value="LOCAL" />
       <updated>1726334289622</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary=" Implementation clickButtonsOnHeader">
+      <option name="closed" value="true" />
+      <created>1726741976780</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726741976780</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Negative tests Login and Registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Negative tests Login and Registration" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value=" Implementation clickButtonsOnHeader" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Implementation clickButtonsOnHeader" />
   </component>
 </project>

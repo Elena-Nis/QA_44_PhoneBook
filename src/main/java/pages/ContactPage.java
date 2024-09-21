@@ -20,10 +20,21 @@ public class ContactPage extends BasePage{
 
     @FindBy(xpath = "//a[text()='CONTACTS']")
     WebElement btnContact;
+    @FindBy(xpath = "//div[@class='contact-page_leftdiv__yhyke']//div[@class='contact-item_card__2SOIM'][last()]/h3")
+    WebElement lastPhoneInList;
+    @FindBy(xpath = "//div[@class='contact-page_leftdiv__yhyke']//div[@class='contact-item_card__2SOIM'][last()]/h2")
+    WebElement nameInList;
 
     public boolean isElementContactPresent(){
         return btnContact.isDisplayed();
     }
 
+    public boolean isLastPhoneEquals(String phone){
+        return lastPhoneInList.getText().equals(phone);
+    }
 
+
+    public boolean isNameEquals(String email) {
+        return nameInList.getText().equals(email);
+    }
 }
