@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment=" Implementation clickButtonsOnHeader">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ContactDtoLombok.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/AboutPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pages/AddPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Experiments.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/AddContactsTests.java" afterDir="false" />
+    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Negative tests for adding contacts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/ContactPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/ContactPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/HeaderMenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/HeaderMenuItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RandomUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RandomUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +29,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Elena-Nis"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Elena-Nis&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Elena-Nis/QA_44_PhoneBook",
-    "accountId": "b934b02e-f002-40ab-bbb3-6282b43edf05"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Elena-Nis/QA_44_PhoneBook&quot;,
+    &quot;accountId&quot;: &quot;b934b02e-f002-40ab-bbb3-6282b43edf05&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -59,57 +50,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.AddContactsTests.addNewContactNegativeAddressEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativePhoneEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativePhoneNotNum.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativePhoneTooLong.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativePhoneTooShort.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailAlreadyExists.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharAfterAt.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharBeforeAt.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailTwoAt.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailWithCyrLet.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailWithoutAt.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestLastNameEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestNameEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactPositiveTest.executor": "Run",
-    "TestNG.HomeTests.executor": "Run",
-    "TestNG.HomeTests.firstTest.executor": "Run",
-    "TestNG.LoginTests.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongEmail.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongEmailUnregUser_Enum.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongPassword.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongPassword_Enum.executor": "Run",
-    "TestNG.LoginTests.loginPositiveTest.executor": "Run",
-    "TestNG.RegistrationTests.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTestEmail.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTestEmailPassword.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTestPassword.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTest_wrongEmail.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTest_wrongEmail_Enum.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeUserRegistered.executor": "Run",
-    "TestNG.RegistrationTests.registrationPositiveTest.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/e4887/Documents_Auto/GitHub/QA_44_PhoneBook/src/test/java/tests",
-    "last_opened_file_path": "C:/Users/e4887/Documents_Auto/GitHub/QA_44_IlCarro",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeAddressEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativePhoneEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativePhoneNotNum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativePhoneTooLong.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativePhoneTooShort.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailAlreadyExists.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharAfterAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharBeforeAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailTwoAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailWithCyrLet.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailWithoutAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestLastNameEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestNameEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactPositiveTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HomeTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HomeTests.firstTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmail.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmailUnregUser_Enum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongPassword_Enum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginPositiveTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTestEmail.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTestEmailPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTestPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTest_wrongEmail.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTest_wrongEmail_Enum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeUserRegistered.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationPositiveTest.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/e4887/Documents_Auto/GitHub/QA_44_PhoneBook/src/test/java/tests&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/e4887/Documents_Auto/GitHub/QA_44_IlCarro&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\e4887\Documents_Auto\GitHub" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.AddContactsTests.addNewContactNegativePhoneTooLong">
-    <configuration name="AddContactsTests.addNewContactNegativeAddressEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.AddContactsTests.addNewContactNegativeTestEmailWithoutAt">
+    <configuration name="AddContactsTests.addNewContactNegativeTestEmailEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -119,7 +113,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativeAddressEmpty" />
+      <option name="METHOD_NAME" value="addNewContactNegativeTestEmailEmpty" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -127,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddContactsTests.addNewContactNegativePhoneEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativeTestEmailTwoAt" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -137,7 +131,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativePhoneEmpty" />
+      <option name="METHOD_NAME" value="addNewContactNegativeTestEmailTwoAt" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -145,7 +139,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddContactsTests.addNewContactNegativePhoneNotNum" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativeTestEmailWithoutAt" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -155,7 +149,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativePhoneNotNum" />
+      <option name="METHOD_NAME" value="addNewContactNegativeTestEmailWithoutAt" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -163,7 +157,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddContactsTests.addNewContactNegativePhoneTooLong" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativeTestLastNameEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -173,7 +167,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativePhoneTooLong" />
+      <option name="METHOD_NAME" value="addNewContactNegativeTestLastNameEmpty" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -181,7 +175,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddContactsTests.addNewContactNegativePhoneTooShort" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativeTestNameEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -191,7 +185,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativePhoneTooShort" />
+      <option name="METHOD_NAME" value="addNewContactNegativeTestNameEmpty" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -201,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneTooLong" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneTooShort" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneNotNum" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneEmpty" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeAddressEmpty" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTestEmailWithoutAt" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTestEmailTwoAt" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTestEmailEmpty" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTestLastNameEmpty" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTestNameEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -242,12 +236,21 @@
       <option name="project" value="LOCAL" />
       <updated>1726741976780</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Negative tests for adding contacts">
+      <option name="closed" value="true" />
+      <created>1726954462571</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726954462571</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Negative tests Login and Registration" />
     <MESSAGE value=" Implementation clickButtonsOnHeader" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Implementation clickButtonsOnHeader" />
+    <MESSAGE value="Negative tests for adding contacts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Negative tests for adding contacts" />
   </component>
 </project>

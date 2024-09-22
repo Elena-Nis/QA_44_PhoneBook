@@ -34,7 +34,7 @@ public class ContactPage extends BasePage{
     }
 
 
-    public boolean isNameEquals(String email) {
-        return nameInList.getText().equals(email);
+    public boolean isNameEquals(String name) {
+        return nameInList.getText().equals(name);
     }
 }
