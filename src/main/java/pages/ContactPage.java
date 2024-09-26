@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,5 +37,24 @@ public class ContactPage extends BasePage{
 
     public boolean isNameEquals(String name) {
         return nameInList.getText().equals(name);
+    }
+
+
+
+    public boolean isAlertPresent(int time) {
+        try {
+            Alert alert = new WebDriverWait(driver, Duration.ofSeconds(time))
+                    .until(ExpectedConditions.alertIsPresent());
+            System.out.println(alert.getText());
+            alert.accept();
+            return true;
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean urlContainsAdd(){
+        return urlContains("add", 20);
     }
 }

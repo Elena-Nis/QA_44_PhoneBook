@@ -58,4 +58,8 @@ public class BasePage {
         }
 
     }
+    public boolean urlContains(String urlPart, int time){
+        return new WebDriverWait(driver, Duration.ofSeconds(time))
+                .until(ExpectedConditions.urlContains(urlPart));
+    }
 }

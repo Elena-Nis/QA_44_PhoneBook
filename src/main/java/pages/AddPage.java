@@ -63,7 +63,7 @@ public class AddPage extends BasePage {
             pause(3);
             alert.accept();
         } catch (TimeoutException e) {
-            System.out.println("Exception");;
+            System.out.println("Exception");
         }
 
         actualURL = driver.getCurrentUrl();
@@ -81,4 +81,8 @@ public class AddPage extends BasePage {
         inputPhone.isDisplayed();
 
     }
+
+
+
+
 }

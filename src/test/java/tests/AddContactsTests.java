@@ -1,11 +1,13 @@
 package tests;
 
+import data_provider.DPAddContact;
 import dto.ContactDtoLombok;
 import dto.UserDto;
 import manager.ApplicationManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.AddPage;
 import pages.ContactPage;
 import pages.HomePage;
@@ -295,4 +297,97 @@ public class AddContactsTests extends ApplicationManager {
                 addPage.isFormPresent())
         ;
     }
+    @Test
+    public void addNewContactNegativeTest_nameIsEmpty() {
+        ContactDtoLombok contact = ContactDtoLombok.builder()
+                .name("")
+                .lastName(generateString(10))
+                .phone(generatePhone(10))
+                .email(generateEmail(12))
+                .address(generateString(20))
+                .description(generateString(10))
+                .build();
+        Assert.assertTrue(addPage.fillContactForm(contact)
+                .clickBtnSaveContactPositive()
+                .urlContainsAdd())
+        ;
+    }
+
+    @Test
+    public void addNewContactNegativeTest_wrongEmail() {
+        ContactDtoLombok contact = ContactDtoLombok.builder()
+                .name(generateString(4))
+                .lastName(generateString(10))
+                .phone(generatePhone(10))
+                .email(generateString(12))
+                .address(generateString(20))
+                .description(generateString(10))
+                .build();
+        Assert.assertTrue(addPage.fillContactForm(contact)
+                .clickBtnSaveContactPositive()
+                .isAlertPresent(5))
+        ;
+    }
+
+
+//Testing using Alexey's methods clickBtnSaveContactPositive, isAlertPresent
+    @Test(dataProvider = "addNewContactDP", dataProviderClass = DPAddContact.class)
+    public void addNewContactNegativeTest_wrongEmailDP(ContactDtoLombok contact) {
+        System.out.println("--> " + contact);
+        Assert.assertTrue(addPage.fillContactForm(contact)
+                .clickBtnSaveContactPositive()
+                .isAlertPresent(5))
+        ;
+    }
+
+    //**********************************************************************
+    //**********************************************************************
+
+   //WITH FILE Tests using my methods clickBtnSaveContactNegative, isURLUnchanged, isFormPresent
+    @Test(dataProvider = "addNewContactDPFile", dataProviderClass = DPAddContact.class)
+    public void addNewContactNegativeTest_wrongDataDPFile(ContactDtoLombok contact) {
+        System.out.println("--> " + contact);
+                Assert.assertTrue(addPage.fillContactForm(contact)
+                .clickBtnSaveContactNegative()
+                .isURLUnchanged()
+                        &&
+                        addPage.isFormPresent())
+
+        ;
+    }
+
+// WITH FILE Tests using Alexey's methods clickBtnSaveContactPositive, isAlertPresent, urlContainsAdd
+        @Test(dataProvider = "addNewContactDPFile", dataProviderClass = DPAddContact.class)
+        public void addNewContactNegativeTest_wrongDataDPFile_AlertInContact(ContactDtoLombok contact) {
+            System.out.println("--> " + contact);
+            ContactPage contactPage =
+            addPage.fillContactForm(contact)
+                   .clickBtnSaveContactPositive();
+            Assert.assertTrue(contactPage.isAlertPresent(3) || contactPage.urlContainsAdd());
+
+    }
+
+  // WITHOUT FILE Tests using Alexey's methods clickBtnSaveContactPositive, isAlertPresent, urlContainsAdd
+    @Test(dataProvider = "addNewContactDP", dataProviderClass = DPAddContact.class)
+    public void addNewContactNegativeTest_wrongDataDP_AlertInContact(ContactDtoLombok contact) {
+        System.out.println("--> " + contact);
+        ContactPage contactPage =
+                addPage.fillContactForm(contact)
+                        .clickBtnSaveContactPositive();
+        Assert.assertTrue(contactPage.isAlertPresent(3) || contactPage.urlContainsAdd());
+    }
+
+
+    // WITHOUT FILE Tests using my methods clickBtnSaveContactNegative, isURLUnchanged, isFormPresent
+    @Test(dataProvider = "addNewContactDP", dataProviderClass = DPAddContact.class)
+    public void addNewContactNegativeTest_wrongDataDP(ContactDtoLombok contact) {
+        System.out.println("--> " + contact);
+        Assert.assertTrue(addPage.fillContactForm(contact)
+                .clickBtnSaveContactNegative()
+                .isURLUnchanged()
+                &&
+                addPage.isFormPresent())
+        ;
+    }
+
 }
