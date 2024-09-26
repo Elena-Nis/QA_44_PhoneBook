@@ -1,5 +1,6 @@
 package pages;
 
+import dto.ContactDtoLombok;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,12 @@ public class ContactPage extends BasePage{
     WebElement lastPhoneInList;
     @FindBy(xpath = "//div[@class='contact-page_leftdiv__yhyke']//div[@class='contact-item_card__2SOIM'][last()]/h2")
     WebElement nameInList;
+    @FindBy(xpath = "//div[@class='contact-page_leftdiv__yhyke']/div/div[last()]")
+    WebElement deleteContact;
+    @FindBy(xpath = "//button[text()='Remove']")
+    WebElement removeContact;
+    @FindBy(xpath = "//h3[contains(text(),'123457890123')]")
+    WebElement actualPhone;
 
     public boolean isElementContactPresent(){
         return btnContact.isDisplayed();
@@ -57,4 +64,16 @@ public class ContactPage extends BasePage{
     public boolean urlContainsAdd(){
         return urlContains("add", 20);
     }
+
+    public ContactPage clickBtnRemoveContact() {
+        deleteContact.click();
+        pause(3);
+        removeContact.click();
+      return this;
+    }
+
+    public boolean isContactDelete (ContactDtoLombok contact) {
+        return ! contact.getPhone().equals(actualPhone);
+    }
+
 }

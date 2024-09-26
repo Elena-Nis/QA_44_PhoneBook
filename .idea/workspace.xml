@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Negative tests for adding contacts">
-      <change afterPath="$PROJECT_DIR$/src/main/java/data_provider/DPAddContact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/wrong_email.csv" afterDir="false" />
+    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Negative tests with DataProvider">
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/DeleteContactsTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/AddPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/AddPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/ContactPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/ContactPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/AddContactsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/AddContactsTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +80,9 @@
     "TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDPFile.executor": "Run",
     "TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDPFile_AlertInContact.executor": "Run",
     "TestNG.AddContactsTests.addNewContactPositiveTest.executor": "Run",
+    "TestNG.DeleteContactsTests.deleteContact.executor": "Run",
+    "TestNG.DeleteContactsTests.deleteContactByIDTestAPI.executor": "Run",
+    "TestNG.DeleteContactsTests.executor": "Run",
     "TestNG.HomeTests.executor": "Run",
     "TestNG.HomeTests.firstTest.executor": "Run",
     "TestNG.LoginTests.executor": "Run",
@@ -116,8 +116,8 @@
       <recent name="C:\Users\e4887\Documents_Auto\GitHub" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDP">
-    <configuration name="AddContactsTests.addNewContactNegativeTest_wrongDataDP" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.DeleteContactsTests.deleteContactByIDTestAPI">
+    <configuration name="AddContactsTests.addNewContactNegativePhoneTooShort" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -127,7 +127,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativeTest_wrongDataDP" />
+      <option name="METHOD_NAME" value="addNewContactNegativePhoneTooShort" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -135,7 +135,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddContactsTests.addNewContactNegativeTest_wrongDataDPFile" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="AddContactsTests.addNewContactNegativeTestEmailNoCharAfterAt" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -145,7 +145,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativeTest_wrongDataDPFile" />
+      <option name="METHOD_NAME" value="addNewContactNegativeTestEmailNoCharAfterAt" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -153,7 +153,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddContactsTests.addNewContactNegativeTest_wrongDataDPFile_AlertInContact" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="DeleteContactsTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -162,8 +162,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativeTest_wrongDataDPFile_AlertInContact" />
+      <option name="MAIN_CLASS_NAME" value="tests.DeleteContactsTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeleteContactsTests.deleteContact" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA_44_PhoneBook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DeleteContactsTests" />
+      <option name="METHOD_NAME" value="deleteContact" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -171,7 +188,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddContactsTests.addNewContactNegativeTest_wrongDataDP_AlertInContact" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="DeleteContactsTests.deleteContactByIDTestAPI" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -180,26 +197,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativeTest_wrongDataDP_AlertInContact" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddContactsTests.addNewContactNegativeTest_wrongEmailDPFile" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="QA_44_PhoneBook" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactNegativeTest_wrongEmailDPFile" />
+      <option name="MAIN_CLASS_NAME" value="tests.DeleteContactsTests" />
+      <option name="METHOD_NAME" value="deleteContactByIDTestAPI" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -209,11 +208,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDP" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDP_AlertInContact" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDPFile_AlertInContact" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDPFile" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDPFile" />
+        <item itemvalue="TestNG.DeleteContactsTests.deleteContactByIDTestAPI" />
+        <item itemvalue="TestNG.DeleteContactsTests.deleteContact" />
+        <item itemvalue="TestNG.DeleteContactsTests" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharAfterAt" />
+        <item itemvalue="TestNG.AddContactsTests.addNewContactNegativePhoneTooShort" />
       </list>
     </recent_temporary>
   </component>
@@ -266,13 +265,22 @@
       <option name="project" value="LOCAL" />
       <updated>1727027034328</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Negative tests with DataProvider">
+      <option name="closed" value="true" />
+      <created>1727342851550</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727342851550</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Negative tests Login and Registration" />
     <MESSAGE value=" Implementation clickButtonsOnHeader" />
     <MESSAGE value="Negative tests for adding contacts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Negative tests for adding contacts" />
+    <MESSAGE value="Negative tests with DataProvider" />
+    <option name="LAST_COMMIT_MESSAGE" value="Negative tests with DataProvider" />
   </component>
 </project>
