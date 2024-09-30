@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.HeaderMenuItem;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
 
@@ -61,5 +62,30 @@ public class BasePage {
     public boolean urlContains(String urlPart, int time){
         return new WebDriverWait(driver, Duration.ofSeconds(time))
                 .until(ExpectedConditions.urlContains(urlPart));
+    }
+
+    public void clickWait(WebElement element, int time){
+        new WebDriverWait(driver, Duration.ofSeconds(time))
+                .until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
+    public void clickWaitVisibility (WebElement element, int time){
+        new WebDriverWait(driver, Duration.ofSeconds(time))
+                .until(ExpectedConditions.visibilityOf(element)).click();
+    }
+
+    public void elementWaitVisibility (WebElement element, int time){
+        new WebDriverWait(driver, Duration.ofSeconds(time))
+                .until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void clickWait(By locator, int time){
+        new WebDriverWait(driver, Duration.ofSeconds(time))
+                .until(ExpectedConditions.elementToBeClickable(locator)).click();
+    }
+
+    public void elementsListWaitInDOM (By locator, int initialCount){
+       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+                wait.until(driver -> driver.findElements(locator).size() < initialCount);
     }
 }

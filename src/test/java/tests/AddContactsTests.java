@@ -19,7 +19,8 @@ import static utils.RandomUtils.*;
 
 public class AddContactsTests extends ApplicationManager {
 
-    UserDto user = new UserDto("asd@qwe.com", "Privet$123457890");
+  //  UserDto user = new UserDto("asd@qwe.com", "Privet$123457890");
+    UserDto user = new UserDto("anton@mail.com", "Anton$123457890");
     AddPage addPage;
 
     @BeforeMethod
