@@ -3,14 +3,18 @@ package tests;
 import dto.UserDto;
 import manager.ApplicationManager;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.HeaderMenuItem;
+import utils.TestNGListener;
 
 import static pages.BasePage.clickButtonsOnHeader;
 import static utils.RandomUtils.generateEmail;
 import static utils.RandomUtils.generateString;
+
+@Listeners(TestNGListener.class)
 
 public class LoginTests extends ApplicationManager {
 

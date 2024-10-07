@@ -51,6 +51,12 @@ public class ContactPage extends BasePage {
     @FindBy(xpath = "//div[@class='contact-page_rightdiv__1NgZC']/div")
     WebElement actualContact;
 
+    @FindBy(xpath = "//div[@class='contact-item-detailed_card__50dTS']//h2")
+    WebElement rightWindowContact;
+//   @FindBy(xpath ="//img[@alt='media']/following-sibling::text()[2]")
+//   WebElement rightWindowEmail;
+   @FindBy(xpath = "//div[@class='contact-item-detailed_card__50dTS']")
+   WebElement rightWindowEmail;
 
     public boolean isElementContactPresent() {
         return btnContact.isDisplayed();
@@ -147,4 +153,65 @@ public class ContactPage extends BasePage {
         );
     }
 
+    public ContactPage fillEditName() {
+        elementWaitVisibility(btnEditSave, 5);
+        editName.clear();
+        pause(3);
+        return this;
+    }
+
+    public ContactPage fillEditLastName() {
+        elementWaitVisibility(btnEditSave, 5);
+        editLastName.clear();
+        pause(3);
+        return this;
+    }
+
+    public boolean isRightWindowName() {
+        String fullText = rightWindowContact.getText();
+        String[] splitText = fullText.split(" ");
+        return !splitText[1].equals("");
+    }
+
+
+    public ContactPage fillEditEmailEmpty() {
+        elementWaitVisibility(btnEditSave, 5);
+        editEmail.clear();
+        editEmail.sendKeys(" ");
+        editEmail.sendKeys(Keys.BACK_SPACE);
+        pause(3);
+        return this;
+    }
+
+    public boolean isRightWindowEmailEmpty() {
+        boolean flag = false;
+        try {
+            driver.findElement(By.xpath("//img[@alt='media']/following-sibling::*[1][self::br]"));
+
+        } catch (NoSuchElementException e) {
+            flag = true;
+        }
+        return flag;
+
+    }
+String emailTwoAt = "a@sd@mail.com";
+    public ContactPage fillEditEmailTwoAt() {
+        elementWaitVisibility(btnEditSave, 5);
+        editEmail.clear();
+        editEmail.sendKeys(emailTwoAt);
+        pause(3);
+        return this;
+    }
+
+    public boolean isRightWindowEmailTwoAt() {
+        String fullText =rightWindowEmail.getText();
+        String[] splitText = fullText.split("\n");
+        boolean flag = false;
+        if(splitText[2]!="") {
+          if (!emailTwoAt.equals(splitText[2])) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
 }
