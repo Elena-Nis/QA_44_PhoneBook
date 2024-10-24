@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Tests DeleteContact and EditContact and logger">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TakeScreenShot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TestNGListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/WDListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Negative Tests EditContact">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/PropertiesReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/RetryAnalyzer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/manager/ApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/manager/ApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/ContactPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/ContactPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/AddContactsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/AddContactsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/DeleteContactsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/DeleteContactsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/EditContactsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/EditContactsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/HomeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/HomeTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,73 +55,74 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "TestNG.AddContactsTests.addNewContactNegativeAddressEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativePhoneEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativePhoneNotNum.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativePhoneTooLong.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativePhoneTooShort.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailAlreadyExists.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharAfterAt.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharBeforeAt.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailTwoAt.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailWithCyrLet.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestEmailWithoutAt.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestLastNameEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTestNameEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_nameIsEmpty.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDP.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDPFile.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDPFile_AlertInContact.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDP_AlertInContact.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmail.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDP.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDPFile.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDPFile_AlertInContact.executor": "Run",
-    "TestNG.AddContactsTests.addNewContactPositiveTest.executor": "Run",
-    "TestNG.DeleteContactsTests.deleteContact.executor": "Run",
-    "TestNG.DeleteContactsTests.deleteContactByIDTestAPI.executor": "Run",
-    "TestNG.DeleteContactsTests.executor": "Run",
-    "TestNG.DeleteContactsTests.removeContactLast.executor": "Run",
-    "TestNG.DeleteContactsTests.removeContactLastWithoutContacts.executor": "Run",
-    "TestNG.DeleteContactsTests.removeContactTest.executor": "Run",
-    "TestNG.EditContactsTests.editContactNegativeTestEmailEmpty.executor": "Run",
-    "TestNG.EditContactsTests.editContactNegativeTestEmailTwoAt.executor": "Run",
-    "TestNG.EditContactsTests.editContactNegativeTestLastNameEmpty.executor": "Run",
-    "TestNG.EditContactsTests.editContactNegativeTestNameEmpty.executor": "Run",
-    "TestNG.EditContactsTests.editContactTest.executor": "Run",
-    "TestNG.HomeTests.executor": "Run",
-    "TestNG.HomeTests.firstTest.executor": "Run",
-    "TestNG.LoginTests.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongEmail.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongEmailUnregUser_Enum.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongPassword.executor": "Run",
-    "TestNG.LoginTests.loginNegativeTest_wrongPassword_Enum.executor": "Run",
-    "TestNG.LoginTests.loginPositiveTest.executor": "Run",
-    "TestNG.RegistrationTests.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTestEmail.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTestEmailPassword.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTestPassword.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTest_wrongEmail.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeTest_wrongEmail_Enum.executor": "Run",
-    "TestNG.RegistrationTests.registrationNegativeUserRegistered.executor": "Run",
-    "TestNG.RegistrationTests.registrationPositiveTest.executor": "Run",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/e4887/Documents_Auto/GitHub/QA_44_PhoneBook/src/test/java/tests",
-    "last_opened_file_path": "C:/Users/e4887/Documents_Auto/GitHub/QA_44_IlCarro",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeAddressEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativePhoneEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativePhoneNotNum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativePhoneTooLong.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativePhoneTooShort.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailAlreadyExists.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharAfterAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailNoCharBeforeAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailTwoAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailWithCyrLet.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestEmailWithoutAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestLastNameEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTestNameEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_nameIsEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDP.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDPFile.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDPFile_AlertInContact.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_wrongDataDP_AlertInContact.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmail.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDP.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDPFile.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactNegativeTest_wrongEmailDPFile_AlertInContact.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.AddContactsTests.addNewContactPositiveTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DeleteContactsTests.deleteContact.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DeleteContactsTests.deleteContactByIDTestAPI.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DeleteContactsTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DeleteContactsTests.removeContactLast.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DeleteContactsTests.removeContactLastWithoutContacts.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.DeleteContactsTests.removeContactTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.EditContactsTests.editContactNegativeTestEmailEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.EditContactsTests.editContactNegativeTestEmailTwoAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.EditContactsTests.editContactNegativeTestLastNameEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.EditContactsTests.editContactNegativeTestNameEmpty.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.EditContactsTests.editContactTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.EditContactsTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HomeTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.HomeTests.firstTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmail.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmailUnregUser_Enum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt_Enum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginNegativeTest_wrongPassword_Enum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.LoginTests.loginPositiveTest.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTestEmail.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTestEmailPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTestPassword.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTest_wrongEmail.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeTest_wrongEmail_Enum.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationNegativeUserRegistered.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.RegistrationTests.registrationPositiveTest.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/e4887/Documents_Auto/GitHub/QA_44_PhoneBook/src/test/java/tests&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/e4887/Documents_Auto/GitHub/QA_44_IlCarro&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\e4887\Documents_Auto\GitHub" />
@@ -138,7 +131,7 @@
       <recent name="C:\Users\e4887\Documents_Auto\GitHub\QA_44_PhoneBook\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.EditContactsTests">
+  <component name="RunManager" selected="TestNG.LoginTests.loginPositiveTest">
     <configuration name="EditContactsTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
@@ -210,7 +203,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EditContactsTests.editContactNegativeTestNameEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests.loginPositiveTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -219,8 +212,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.EditContactsTests" />
-      <option name="METHOD_NAME" value="editContactNegativeTestNameEmpty" />
+      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
+      <option name="METHOD_NAME" value="loginPositiveTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -230,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.EditContactsTests" />
+        <item itemvalue="TestNG.LoginTests.loginPositiveTest" />
+        <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestLastNameEmpty" />
         <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestEmailTwoAt" />
         <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestEmailEmpty" />
-        <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestLastNameEmpty" />
-        <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestNameEmpty" />
+        <item itemvalue="TestNG.EditContactsTests" />
       </list>
     </recent_temporary>
   </component>
@@ -311,8 +304,27 @@
       <option name="project" value="LOCAL" />
       <updated>1727703614683</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Negative Tests EditContact">
+      <option name="closed" value="true" />
+      <created>1728310926898</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1728310926898</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Negative tests Login and Registration" />
@@ -321,6 +333,7 @@
     <MESSAGE value="Negative tests with DataProvider" />
     <MESSAGE value="Tests DeleteContact" />
     <MESSAGE value="Tests DeleteContact and EditContact and logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tests DeleteContact and EditContact and logger" />
+    <MESSAGE value="Negative Tests EditContact" />
+    <option name="LAST_COMMIT_MESSAGE" value="Negative Tests EditContact" />
   </component>
 </project>

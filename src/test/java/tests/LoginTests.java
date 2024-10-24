@@ -1,6 +1,9 @@
 package tests;
 
 import dto.UserDto;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import manager.ApplicationManager;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
@@ -18,8 +21,12 @@ import static utils.RandomUtils.generateString;
 
 public class LoginTests extends ApplicationManager {
 
+    @Description("Tests Login")
+    @Owner("Elena Nisnevich")
+
     @Test
     public void loginPositiveTest() {
+        Allure.step("Fill LoginForm");
         boolean result = new HomePage(getDriver())
                 .clickBtnLoginHeader()
                 .typeLoginForm("qa_mail@mail.com", "Qwerty123!")
@@ -43,8 +50,8 @@ public class LoginTests extends ApplicationManager {
     public void loginNegativeTest_wrongPassword_Enum() {
         UserDto user = new UserDto("qa_mail@mail.com", "Qwerty123!----");
         new HomePage(getDriver());
-              LoginPage loginPage = clickButtonsOnHeader(HeaderMenuItem.LOGIN);
-                loginPage.typeLoginForm(user)
+        LoginPage loginPage = clickButtonsOnHeader(HeaderMenuItem.LOGIN);
+        loginPage.typeLoginForm(user)
                 .clickBtnLoginNegative()
                 .closeAlert()
                 .isTextInElementPresent_errorMessage()
