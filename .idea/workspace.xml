@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment="Negative Tests EditContact">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/PropertiesReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/RetryAnalyzer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/data.properties" afterDir="false" />
+    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment=" Allure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/EditContactsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/EditContactsTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,24 +127,7 @@
       <recent name="C:\Users\e4887\Documents_Auto\GitHub\QA_44_PhoneBook\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTests.loginPositiveTest">
-    <configuration name="EditContactsTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="QA_44_PhoneBook" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.EditContactsTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.EditContactsTests.editContactTest">
     <configuration name="EditContactsTests.editContactNegativeTestEmailEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
@@ -203,6 +182,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EditContactsTests.editContactTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA_44_PhoneBook" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.EditContactsTests" />
+      <option name="METHOD_NAME" value="editContactTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginTests.loginPositiveTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
@@ -223,11 +220,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LoginTests.loginPositiveTest" />
+        <item itemvalue="TestNG.EditContactsTests.editContactTest" />
         <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestLastNameEmpty" />
+        <item itemvalue="TestNG.LoginTests.loginPositiveTest" />
         <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestEmailTwoAt" />
         <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestEmailEmpty" />
-        <item itemvalue="TestNG.EditContactsTests" />
       </list>
     </recent_temporary>
   </component>
@@ -312,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728310926898</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary=" Allure">
+      <option name="closed" value="true" />
+      <created>1729734830773</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1729734830773</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,6 +339,7 @@
     <MESSAGE value="Tests DeleteContact" />
     <MESSAGE value="Tests DeleteContact and EditContact and logger" />
     <MESSAGE value="Negative Tests EditContact" />
-    <option name="LAST_COMMIT_MESSAGE" value="Negative Tests EditContact" />
+    <MESSAGE value=" Allure" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Allure" />
   </component>
 </project>

@@ -12,6 +12,7 @@ import pages.ContactPage;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.HeaderMenuItem;
+import utils.RetryAnalyzer;
 import utils.TestNGListener;
 
 import static pages.BasePage.clickButtonsOnHeader;
@@ -31,7 +32,7 @@ public class EditContactsTests extends ApplicationManager {
         loginPage = clickButtonsOnHeader(HeaderMenuItem.LOGIN);
     }
 
-    @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
+    @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class, retryAnalyzer = RetryAnalyzer.class)
     public void editContactTest(UserDto user) {
         loginPage.typeLoginForm(user)
                 .clickBtnLoginPositive();
@@ -39,6 +40,8 @@ public class EditContactsTests extends ApplicationManager {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
+                // If you replace 10 with 9 in the phone, then operation of  retryAnalyzer is visible.
+                // There will be 8 tests instead of 2
                 .phone(generatePhone(10))
                 .email(generateEmail(12))
                 .address(generateString(20))
@@ -56,7 +59,7 @@ public class EditContactsTests extends ApplicationManager {
 
     //NEGATIVE CONTACT EDITING TESTS
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
-    public void  editContactNegativeTestNameEmpty (UserDto user) {
+    public void editContactNegativeTestNameEmpty(UserDto user) {
         loginPage.typeLoginForm(user)
                 .clickBtnLoginPositive();
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
@@ -70,7 +73,7 @@ public class EditContactsTests extends ApplicationManager {
     }
 
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
-    public void  editContactNegativeTestLastNameEmpty (UserDto user) {
+    public void editContactNegativeTestLastNameEmpty(UserDto user) {
         loginPage.typeLoginForm(user)
                 .clickBtnLoginPositive();
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
@@ -84,7 +87,7 @@ public class EditContactsTests extends ApplicationManager {
     }
 
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
-    public void  editContactNegativeTestEmailEmpty (UserDto user) {
+    public void editContactNegativeTestEmailEmpty(UserDto user) {
         loginPage.typeLoginForm(user)
                 .clickBtnLoginPositive();
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
@@ -94,11 +97,11 @@ public class EditContactsTests extends ApplicationManager {
                 .clickBtnEditSave()
                 .isRightWindowEmailEmpty())
         ;
-    //Bug: email cannot be empty
+        //Bug: email cannot be empty
     }
 
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
-    public void  editContactNegativeTestEmailTwoAt (UserDto user) {
+    public void editContactNegativeTestEmailTwoAt(UserDto user) {
         loginPage.typeLoginForm(user)
                 .clickBtnLoginPositive();
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
