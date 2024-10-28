@@ -2,13 +2,23 @@ package tests;
 
 import data_provider.DPAddContact;
 import dto.ContactDtoLombok;
+import dto.ContactsDto;
+import dto.TokenDto;
 import dto.UserDto;
+import interfaces.BaseApi;
 import manager.ApplicationManager;
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.v85.network.Network;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.AddPage;
 import pages.ContactPage;
 import pages.HomePage;
@@ -16,28 +26,37 @@ import pages.LoginPage;
 import utils.HeaderMenuItem;
 import utils.TestNGListener;
 
+import java.io.IOException;
+import java.util.Optional;
+
+import static interfaces.BaseApi.*;
 import static pages.BasePage.clickButtonsOnHeader;
 import static utils.RandomUtils.*;
 
 @Listeners(TestNGListener.class)
 
 
-public class AddContactsTests extends ApplicationManager {
+public class AddContactsTests extends ApplicationManager implements BaseApi {
 
-  //  UserDto user = new UserDto("asd@qwe.com", "Privet$123457890");
+    //  UserDto user = new UserDto("asd@qwe.com", "Privet$123457890");
     UserDto user = new UserDto("anton@mail.com", "Anton$123457890");
     AddPage addPage;
+    Response response;
 
     @BeforeMethod
-    public void login(){
+    public void login() {
         new HomePage(getDriver());
         LoginPage loginPage = clickButtonsOnHeader(HeaderMenuItem.LOGIN);
         loginPage.typeLoginForm(user).clickBtnLoginPositive();
         addPage = clickButtonsOnHeader(HeaderMenuItem.ADD);
+//        DevTools devTools = ((ChromeDriver) getDriver()).getDevTools();
+//        devTools.createSession();
+//        devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
+//        devTools.addListener(Network.responseReceived(), responce ->);
     }
 
     @Test
-    public void addNewContactPositiveTest(){
+    public void addNewContactPositiveTest() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -50,10 +69,58 @@ public class AddContactsTests extends ApplicationManager {
                 .clickBtnSaveContactPositive()
                 .isLastPhoneEquals(contact.getPhone()))
         ;
+
     }
 
     @Test
-    public void addNewContactNegativeTestNameEmpty(){
+    public void addNewContactPositiveTestAPI() throws IOException {
+        ContactDtoLombok contact = ContactDtoLombok.builder()
+                .name(generateString(5))
+                .lastName(generateString(10))
+                .phone(generatePhone(10))
+                .email(generateEmail(12))
+                .address(generateString(20))
+                .description(generateString(10))
+                .build();
+        Assert.assertTrue(addPage.fillContactForm(contact)
+                .clickBtnSaveContactPositive()
+                .isLastPhoneEquals(contact.getPhone()))
+        ;
+        String token = (String) ((JavascriptExecutor) getDriver()).executeScript("return localStorage.getItem('token');");
+        System.out.println("**** Token ****" + token);
+        Request request = new Request.Builder()
+                .url(BASE_URL + GET_ALL_CONTACTS_PATH)
+                .addHeader("Authorization", token)
+                .get()
+                .build();
+        Response response;
+        try {
+            response = OK_HTTP_CLIENT.newCall(request).execute();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        if (response.isSuccessful()) {
+            ContactsDto contacts = GSON.fromJson(response.body().string(), ContactsDto.class);
+            System.out.println(contacts);
+            boolean contactFound = false;
+            for (ContactDtoLombok c : contacts.getContacts()) {
+                System.out.println(c);
+                if (c.getName().equals(contact.getName()) &&
+                        c.getLastName().equals(contact.getLastName()) &&
+                        c.getPhone().equals(contact.getPhone()) &&
+                        c.getEmail().equals(contact.getEmail()) &&
+                        c.getAddress().equals(contact.getAddress()) &&
+                        c.getDescription().equals(contact.getDescription())) {
+                    contactFound = true;
+                }
+            }
+            Assert.assertTrue(contactFound, "***** Contact found! *****");
+        } else
+            System.out.println("Something went wrong ");
+    }
+
+    @Test
+    public void addNewContactNegativeTestNameEmpty() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(0))
                 .lastName(generateString(10))
@@ -63,14 +130,14 @@ public class AddContactsTests extends ApplicationManager {
                 .description(generateString(10))
                 .build();
         Assert.assertTrue(addPage.fillContactForm(contact)
-                       .clickBtnSaveContactNegative()
-                       .isURLUnchanged() &&
-                        addPage.isFormPresent())
+                .clickBtnSaveContactNegative()
+                .isURLUnchanged() &&
+                addPage.isFormPresent())
         ;
     }
 
     @Test
-    public void addNewContactNegativeTestLastNameEmpty(){
+    public void addNewContactNegativeTestLastNameEmpty() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(0))
@@ -87,7 +154,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativeTestEmailEmpty(){
+    public void addNewContactNegativeTestEmailEmpty() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -96,18 +163,17 @@ public class AddContactsTests extends ApplicationManager {
                 .address(generateString(20))
                 .description(generateString(10))
                 .build();
-         Assert.assertTrue(
-         addPage.fillContactForm(contact)
-                .clickBtnSaveContactPositive()
-                .isNameEquals(contact.getName()))
+        Assert.assertTrue(
+                addPage.fillContactForm(contact)
+                        .clickBtnSaveContactPositive()
+                        .isNameEquals(contact.getName()))
         ;
         //Bug: email cannot be empty according to the requirements
     }
 
 
-
     @Test
-    public void addNewContactNegativeTestEmailTwoAt(){
+    public void addNewContactNegativeTestEmailTwoAt() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -119,14 +185,14 @@ public class AddContactsTests extends ApplicationManager {
         Assert.assertTrue(addPage.fillContactForm(contact)
                 .clickBtnSaveContactNegative()
                 .isURLUnchanged() &&
-               addPage.isFormPresent());
+                addPage.isFormPresent());
 
         ;
 
     }
 
     @Test
-    public void addNewContactNegativeTestEmailWithoutAt(){
+    public void addNewContactNegativeTestEmailWithoutAt() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -144,7 +210,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativeTestEmailNoCharBeforeAt(){
+    public void addNewContactNegativeTestEmailNoCharBeforeAt() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -163,7 +229,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativeTestEmailNoCharAfterAt(){
+    public void addNewContactNegativeTestEmailNoCharAfterAt() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -182,7 +248,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativeTestEmailWithCyrLet(){
+    public void addNewContactNegativeTestEmailWithCyrLet() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -201,7 +267,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativeTestEmailAlreadyExists(){
+    public void addNewContactNegativeTestEmailAlreadyExists() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -220,7 +286,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativeAddressEmpty(){
+    public void addNewContactNegativeAddressEmpty() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -237,7 +303,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativePhoneEmpty(){
+    public void addNewContactNegativePhoneEmpty() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -254,7 +320,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativePhoneNotNum(){
+    public void addNewContactNegativePhoneNotNum() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -271,7 +337,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativePhoneTooShort(){
+    public void addNewContactNegativePhoneTooShort() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -288,7 +354,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
     @Test
-    public void addNewContactNegativePhoneTooLong(){
+    public void addNewContactNegativePhoneTooLong() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
                 .lastName(generateString(10))
@@ -303,6 +369,7 @@ public class AddContactsTests extends ApplicationManager {
                 addPage.isFormPresent())
         ;
     }
+
     @Test
     public void addNewContactNegativeTest_nameIsEmpty() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
@@ -336,7 +403,7 @@ public class AddContactsTests extends ApplicationManager {
     }
 
 
-//Testing using Alexey's methods clickBtnSaveContactPositive, isAlertPresent
+    //Testing using Alexey's methods clickBtnSaveContactPositive, isAlertPresent
     @Test(dataProvider = "addNewContactDP", dataProviderClass = DPAddContact.class)
     public void addNewContactNegativeTest_wrongEmailDP(ContactDtoLombok contact) {
         System.out.println("--> " + contact);
@@ -346,34 +413,34 @@ public class AddContactsTests extends ApplicationManager {
         ;
     }
 
-    //**********************************************************************
-    //**********************************************************************
+//**********************************************************************
+//**********************************************************************
 
-   //WITH FILE Tests using my methods clickBtnSaveContactNegative, isURLUnchanged, isFormPresent
+    //WITH FILE Tests using my methods clickBtnSaveContactNegative, isURLUnchanged, isFormPresent
     @Test(dataProvider = "addNewContactDPFile", dataProviderClass = DPAddContact.class)
     public void addNewContactNegativeTest_wrongDataDPFile(ContactDtoLombok contact) {
         System.out.println("--> " + contact);
-                Assert.assertTrue(addPage.fillContactForm(contact)
+        Assert.assertTrue(addPage.fillContactForm(contact)
                 .clickBtnSaveContactNegative()
                 .isURLUnchanged()
-                        &&
-                        addPage.isFormPresent())
+                &&
+                addPage.isFormPresent())
 
         ;
     }
 
-// WITH FILE Tests using Alexey's methods clickBtnSaveContactPositive, isAlertPresent, urlContainsAdd
-        @Test(dataProvider = "addNewContactDPFile", dataProviderClass = DPAddContact.class)
-        public void addNewContactNegativeTest_wrongDataDPFile_AlertInContact(ContactDtoLombok contact) {
-            System.out.println("--> " + contact);
-            ContactPage contactPage =
-            addPage.fillContactForm(contact)
-                   .clickBtnSaveContactPositive();
-            Assert.assertTrue(contactPage.isAlertPresent(3) || contactPage.urlContainsAdd());
+    // WITH FILE Tests using Alexey's methods clickBtnSaveContactPositive, isAlertPresent, urlContainsAdd
+    @Test(dataProvider = "addNewContactDPFile", dataProviderClass = DPAddContact.class)
+    public void addNewContactNegativeTest_wrongDataDPFile_AlertInContact(ContactDtoLombok contact) {
+        System.out.println("--> " + contact);
+        ContactPage contactPage =
+                addPage.fillContactForm(contact)
+                        .clickBtnSaveContactPositive();
+        Assert.assertTrue(contactPage.isAlertPresent(3) || contactPage.urlContainsAdd());
 
     }
 
-  // WITHOUT FILE Tests using Alexey's methods clickBtnSaveContactPositive, isAlertPresent, urlContainsAdd
+    // WITHOUT FILE Tests using Alexey's methods clickBtnSaveContactPositive, isAlertPresent, urlContainsAdd
     @Test(dataProvider = "addNewContactDP", dataProviderClass = DPAddContact.class)
     public void addNewContactNegativeTest_wrongDataDP_AlertInContact(ContactDtoLombok contact) {
         System.out.println("--> " + contact);
@@ -395,7 +462,6 @@ public class AddContactsTests extends ApplicationManager {
                 addPage.isFormPresent())
         ;
     }
-
 
 
 }

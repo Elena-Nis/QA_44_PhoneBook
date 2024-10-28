@@ -31,7 +31,7 @@ public class DeleteContactsTests extends ApplicationManager {
 
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
     public void removeContactTest(UserDto user) {
-        logger.info("start method --> removeContactTest" + " with data: " + "Email: " + user.getEmail()
+        logger.info("start method --> removeContactTest" + " with data: " + "Email: " + user.getUsername()
                 + " Password: " + user.getPassword());
         loginPage.typeLoginForm(user)
                 .clickBtnLoginPositive();
