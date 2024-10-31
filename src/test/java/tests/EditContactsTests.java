@@ -2,12 +2,19 @@ package tests;
 
 import data_provider.DPDeleteContact;
 import dto.ContactDtoLombok;
+import dto.TokenDto;
 import dto.UserDto;
+import interfaces.BaseApi;
 import manager.ApplicationManager;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.ContactPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -15,27 +22,63 @@ import utils.HeaderMenuItem;
 import utils.RetryAnalyzer;
 import utils.TestNGListener;
 
+import java.io.IOException;
+
 import static pages.BasePage.clickButtonsOnHeader;
+import static utils.PropertiesReader.getProperty;
 import static utils.RandomUtils.*;
-import static utils.RandomUtils.generateString;
 
 @Listeners(TestNGListener.class)
 
-public class EditContactsTests extends ApplicationManager {
+public class EditContactsTests extends ApplicationManager implements BaseApi {
+    TokenDto token;
     ContactPage contactPage;
     LoginPage loginPage;
 
-    @BeforeMethod
-    public void login() {
+    private boolean useAPI = true;
+
+    @BeforeMethod(alwaysRun = true)
+    public void setupMethod() throws InterruptedException{
+        if (useAPI) {
+            loginAPI();
+        } else {
+            loginUI();
+        }
+    }
+
+    public void loginUI() {
         logger.info("start method --> login");
         new HomePage(getDriver());
         loginPage = clickButtonsOnHeader(HeaderMenuItem.LOGIN);
     }
 
-    @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class, retryAnalyzer = RetryAnalyzer.class)
+    public void loginAPI()  throws InterruptedException{
+        UserDto user = new UserDto(getProperty("data.properties", "email"),
+                getProperty("data.properties", "password"));
+        RequestBody requestBody = RequestBody.create(GSON.toJson(user), JSON);
+        Request request = new Request.Builder()
+                .url(BASE_URL + LOGIN_PATH)
+                .post(requestBody)
+                .build();
+        Response response;
+        try {
+            response = OK_HTTP_CLIENT.newCall(request).execute();
+            token = GSON.fromJson(response.body().string(), TokenDto.class);
+            System.out.println("*********** token ************" + token.getToken());
+            new HomePage(getDriver());
+            ((JavascriptExecutor) getDriver()).executeScript("window.localStorage.setItem('token', '" + token.getToken() + "');");
+        // Thread.sleep(3000);
+            getDriver().navigate().refresh();
+        //    Thread.sleep(3000);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
     public void editContactTest(UserDto user) {
+        if (!useAPI) {
         loginPage.typeLoginForm(user)
-                .clickBtnLoginPositive();
+                .clickBtnLoginPositive();}
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
@@ -60,8 +103,9 @@ public class EditContactsTests extends ApplicationManager {
     //NEGATIVE CONTACT EDITING TESTS
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
     public void editContactNegativeTestNameEmpty(UserDto user) {
-        loginPage.typeLoginForm(user)
-                .clickBtnLoginPositive();
+        if (!useAPI) {
+            loginPage.typeLoginForm(user)
+                    .clickBtnLoginPositive();}
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
         Assert.assertTrue(contactPage.selectedContact()
                 .editContact()
@@ -74,8 +118,9 @@ public class EditContactsTests extends ApplicationManager {
 
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
     public void editContactNegativeTestLastNameEmpty(UserDto user) {
-        loginPage.typeLoginForm(user)
-                .clickBtnLoginPositive();
+        if (!useAPI) {
+            loginPage.typeLoginForm(user)
+                    .clickBtnLoginPositive();}
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
         Assert.assertTrue(contactPage.selectedContact()
                 .editContact()
@@ -88,8 +133,9 @@ public class EditContactsTests extends ApplicationManager {
 
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
     public void editContactNegativeTestEmailEmpty(UserDto user) {
-        loginPage.typeLoginForm(user)
-                .clickBtnLoginPositive();
+        if (!useAPI) {
+            loginPage.typeLoginForm(user)
+                    .clickBtnLoginPositive();}
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
         Assert.assertTrue(contactPage.selectedContact()
                 .editContact()
@@ -102,8 +148,9 @@ public class EditContactsTests extends ApplicationManager {
 
     @Test(dataProvider = "addNewUserDP", dataProviderClass = DPDeleteContact.class)
     public void editContactNegativeTestEmailTwoAt(UserDto user) {
-        loginPage.typeLoginForm(user)
-                .clickBtnLoginPositive();
+        if (!useAPI) {
+            loginPage.typeLoginForm(user)
+                    .clickBtnLoginPositive();}
         contactPage = clickButtonsOnHeader(HeaderMenuItem.CONTACTS);
         Assert.assertTrue(contactPage.selectedContact()
                 .editContact()

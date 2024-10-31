@@ -22,7 +22,7 @@ public class DeleteContactsTests extends ApplicationManager {
     ContactPage contactPage;
     LoginPage loginPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         logger.info("start method --> login");
         new HomePage(getDriver());

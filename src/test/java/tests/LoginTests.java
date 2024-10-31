@@ -24,7 +24,7 @@ public class LoginTests extends ApplicationManager {
     @Description("Tests Login")
     @Owner("Elena Nisnevich")
 
-    @Test
+    @Test(groups = "smoke")
     public void loginPositiveTest() {
         Allure.step("Fill LoginForm");
         boolean result = new HomePage(getDriver())

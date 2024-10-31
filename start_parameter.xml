@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="start_par" >
+    <test name="positivetests">
+        <parameter name="value1" value="10"/>
+        <parameter name="value2" value="-25"/>
+        <groups>
+            <run>
+                <include name="prameters_tests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginTests"/>
+        </classes>
+    </test>
+</suite>

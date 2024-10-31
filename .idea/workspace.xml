@@ -4,21 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment=" Properties and RetryAnalyzer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ContactsDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ErrorMessageDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/TokenDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/interfaces/BaseApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/okhttp/GetAllUserPhonesTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/okhttp/LoginTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/okhttp/RegistrationTests.java" afterDir="false" />
+    <list default="true" id="c2300f08-aea5-4479-b099-32a6d8d2ced9" name="Changes" comment=" Implementation of the OkHttpClient">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smoke.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ResponseMessageDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/okhttp/DeletePhoneTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/okhttp/UpdateContactTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/start_parameter.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/ContactDtoLombok.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ContactDtoLombok.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/okhttp/GetAllUserPhonesTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/okhttp/GetAllUserPhonesTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/okhttp/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/okhttp/LoginTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/AddContactsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/AddContactsTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/DeleteContactsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/DeleteContactsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/EditContactsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/EditContactsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/RegistrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +99,17 @@
     "TestNG.DeleteContactsTests.removeContactLast.executor": "Run",
     "TestNG.DeleteContactsTests.removeContactLastWithoutContacts.executor": "Run",
     "TestNG.DeleteContactsTests.removeContactTest.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestBadRequest_400.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestBadRequest_404.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestForbiddenAccess_403.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestInvalidEndpoint_400.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestServerError_401.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestServerError_403.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestServerError_404.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestServerError_500.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTestUnauthorized_401.executor": "Run",
+    "TestNG.DeletePhoneTests.deleteNegativeTest_400.executor": "Run",
+    "TestNG.DeletePhoneTests.executor": "Run",
     "TestNG.EditContactsTests.editContactNegativeTestEmailEmpty.executor": "Run",
     "TestNG.EditContactsTests.editContactNegativeTestEmailTwoAt.executor": "Run",
     "TestNG.EditContactsTests.editContactNegativeTestLastNameEmpty.executor": "Run",
@@ -144,11 +155,15 @@
       <recent name="C:\Users\e4887\Documents_Auto\GitHub" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\e4887\Documents_Auto\GitHub\QA_44_PhoneBook\src\test\java\tests" />
       <recent name="C:\Users\e4887\Documents_Auto\GitHub\QA_44_PhoneBook\src\test\resources" />
     </key>
+    <key name="MoveInnerDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunManager" selected="TestNG.AddContactsTests.addNewContactPositiveTestAPI">
-    <configuration name="AddContactsTests.addNewContactPositiveTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.EditContactsTests.editContactNegativeTestEmailTwoAt">
+    <configuration name="EditContactsTests.editContactNegativeTestEmailEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -157,8 +172,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactPositiveTest" />
+      <option name="MAIN_CLASS_NAME" value="tests.EditContactsTests" />
+      <option name="METHOD_NAME" value="editContactNegativeTestEmailEmpty" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -166,7 +181,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AddContactsTests.addNewContactPositiveTestAPI" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EditContactsTests.editContactNegativeTestEmailTwoAt" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
@@ -175,8 +190,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.AddContactsTests" />
-      <option name="METHOD_NAME" value="addNewContactPositiveTestAPI" />
+      <option name="MAIN_CLASS_NAME" value="tests.EditContactsTests" />
+      <option name="METHOD_NAME" value="editContactNegativeTestEmailTwoAt" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -184,17 +199,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginNegativeTest_wrongEmailUnregUser" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EditContactsTests.editContactNegativeTestLastNameEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="okhttp.*" />
+          <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="okhttp" />
-      <option name="MAIN_CLASS_NAME" value="okhttp.LoginTests" />
-      <option name="METHOD_NAME" value="loginNegativeTest_wrongEmailUnregUser" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.EditContactsTests" />
+      <option name="METHOD_NAME" value="editContactNegativeTestLastNameEmpty" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -202,17 +217,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginNegativeTest_wrongEmailWOAt" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EditContactsTests.editContactNegativeTestNameEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="okhttp.*" />
+          <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="okhttp" />
-      <option name="MAIN_CLASS_NAME" value="okhttp.LoginTests" />
-      <option name="METHOD_NAME" value="loginNegativeTest_wrongEmailWOAt" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.EditContactsTests" />
+      <option name="METHOD_NAME" value="editContactNegativeTestNameEmpty" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -220,17 +235,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginPositiveTestProperties" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EditContactsTests.editContactTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA_44_PhoneBook" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="okhttp.*" />
+          <option name="PATTERN" value="tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="okhttp" />
-      <option name="MAIN_CLASS_NAME" value="okhttp.LoginTests" />
-      <option name="METHOD_NAME" value="loginPositiveTestProperties" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.EditContactsTests" />
+      <option name="METHOD_NAME" value="editContactTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -240,11 +255,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.AddContactsTests.addNewContactPositiveTestAPI" />
-        <item itemvalue="TestNG.AddContactsTests.addNewContactPositiveTest" />
-        <item itemvalue="TestNG.LoginTests.loginPositiveTestProperties" />
-        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongEmailWOAt" />
-        <item itemvalue="TestNG.LoginTests.loginNegativeTest_wrongEmailUnregUser" />
+        <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestEmailTwoAt" />
+        <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestEmailEmpty" />
+        <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestLastNameEmpty" />
+        <item itemvalue="TestNG.EditContactsTests.editContactNegativeTestNameEmpty" />
+        <item itemvalue="TestNG.EditContactsTests.editContactTest" />
       </list>
     </recent_temporary>
   </component>
@@ -345,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729788307110</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary=" Implementation of the OkHttpClient">
+      <option name="closed" value="true" />
+      <created>1730131598454</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730131598454</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -369,6 +392,7 @@
     <MESSAGE value="Negative Tests EditContact" />
     <MESSAGE value=" Allure" />
     <MESSAGE value=" Properties and RetryAnalyzer" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Properties and RetryAnalyzer" />
+    <MESSAGE value=" Implementation of the OkHttpClient" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Implementation of the OkHttpClient" />
   </component>
 </project>

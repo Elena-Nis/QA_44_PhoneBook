@@ -18,7 +18,7 @@ import static utils.RandomUtils.generateString;
 
 public class RegistrationTests extends ApplicationManager {
 
-    @Test
+    @Test(groups = "smoke")
     public void registrationPositiveTest(){
         Assert.assertTrue(new HomePage(getDriver())
                 .clickBtnLoginHeader()

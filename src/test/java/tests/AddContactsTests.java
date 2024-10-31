@@ -3,22 +3,17 @@ package tests;
 import data_provider.DPAddContact;
 import dto.ContactDtoLombok;
 import dto.ContactsDto;
-import dto.TokenDto;
 import dto.UserDto;
 import interfaces.BaseApi;
 import manager.ApplicationManager;
-import okhttp3.OkHttpClient;
-import okhttp3.RequestBody;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v85.network.Network;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.AddPage;
 import pages.ContactPage;
 import pages.HomePage;
@@ -27,9 +22,9 @@ import utils.HeaderMenuItem;
 import utils.TestNGListener;
 
 import java.io.IOException;
-import java.util.Optional;
 
-import static interfaces.BaseApi.*;
+
+
 import static pages.BasePage.clickButtonsOnHeader;
 import static utils.RandomUtils.*;
 
@@ -42,8 +37,9 @@ public class AddContactsTests extends ApplicationManager implements BaseApi {
     UserDto user = new UserDto("anton@mail.com", "Anton$123457890");
     AddPage addPage;
     Response response;
+    SoftAssert softAssert = new SoftAssert();
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void login() {
         new HomePage(getDriver());
         LoginPage loginPage = clickButtonsOnHeader(HeaderMenuItem.LOGIN);
@@ -55,7 +51,7 @@ public class AddContactsTests extends ApplicationManager implements BaseApi {
 //        devTools.addListener(Network.responseReceived(), responce ->);
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void addNewContactPositiveTest() {
         ContactDtoLombok contact = ContactDtoLombok.builder()
                 .name(generateString(5))
@@ -82,7 +78,7 @@ public class AddContactsTests extends ApplicationManager implements BaseApi {
                 .address(generateString(20))
                 .description(generateString(10))
                 .build();
-        Assert.assertTrue(addPage.fillContactForm(contact)
+        softAssert.assertTrue(addPage.fillContactForm(contact)
                 .clickBtnSaveContactPositive()
                 .isLastPhoneEquals(contact.getPhone()))
         ;
@@ -114,9 +110,10 @@ public class AddContactsTests extends ApplicationManager implements BaseApi {
                     contactFound = true;
                 }
             }
-            Assert.assertTrue(contactFound, "***** Contact found! *****");
+            softAssert.assertTrue(contactFound, "***** Contact found! *****");
         } else
             System.out.println("Something went wrong ");
+        softAssert.assertAll();
     }
 
     @Test
