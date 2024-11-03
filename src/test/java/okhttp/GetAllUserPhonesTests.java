@@ -17,7 +17,7 @@ import static utils.PropertiesReader.getProperty;
 public class GetAllUserPhonesTests implements BaseApi {
 
     TokenDto token;
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void loginUser(){
         UserDto user = new UserDto(getProperty("data.properties", "email"),
                 getProperty("data.properties", "password"));
@@ -40,7 +40,7 @@ public class GetAllUserPhonesTests implements BaseApi {
 //        }
     }
 
-    @Test
+    @Test(groups = {"smoke", "positive"})
     public void getAllUserPhonesPositiveTest(){
         Request request = new Request.Builder()
                 .url(BASE_URL+GET_ALL_CONTACTS_PATH)
@@ -56,7 +56,7 @@ public class GetAllUserPhonesTests implements BaseApi {
         Assert.assertTrue(response.isSuccessful());
     }
 
-    @Test
+    @Test(groups = {"smoke", "negative"})
     public void getAllUserPhonesNegativeTest_WOToken_401() {
         Request request = new Request.Builder()
                 .url(BASE_URL + GET_ALL_CONTACTS_PATH)

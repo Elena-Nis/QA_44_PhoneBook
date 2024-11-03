@@ -23,7 +23,7 @@ public class UpdateContactTests implements BaseApi {
     TokenDto token;
     ContactDtoLombok contact;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void loginUser() {
         UserDto user = new UserDto(getProperty("data.properties", "email"),
                 getProperty("data.properties", "password"));
@@ -42,7 +42,7 @@ public class UpdateContactTests implements BaseApi {
         }
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void getAllUserPhonesPositiveTest_getContactList() throws IOException {
         Request request = new Request.Builder()
                 .url(BASE_URL + GET_ALL_CONTACTS_PATH)
@@ -64,7 +64,7 @@ public class UpdateContactTests implements BaseApi {
             System.out.println("Something went wrong ");
     }
 
-    @Test
+    @Test(groups = {"smoke", "positive"})
     public void updateContactPositiveTest(){  //contact    update    contactNew
         ContactDtoLombok contactNew = ContactDtoLombok.builder()
                 .id(contact.getId())
